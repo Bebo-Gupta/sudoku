@@ -1,3 +1,14 @@
+const celeb = () => {
+    let positionList = [
+        { x: window.innerWidth * 0.50, y: window.innerHeight * 0.60 },
+        { x: window.innerWidth * 0.25, y: window.innerHeight * 0.40 },
+        { x: window.innerWidth * 0.75, y: window.innerHeight * 0.30 },
+    ];
+    for(let i = 0; i < positionList.length; i++) {
+        setTimeout(() => confetti({ position: positionList[i] }), i * 250);
+    }
+};
+
 let nums = document.getElementsByClassName("nums")
 
 let temp = Array.from(nums)
@@ -38,6 +49,7 @@ function getInput() {
     if (isInitialBoardValid(board)) {
         solveSudoku(board);
         printSolution(board, numarr)
+        celeb();
     }
     else {
         alert("Unsolvalble Sudoku. Check values again.")
@@ -101,7 +113,7 @@ function printSolution(board, numarr) {
             setTimeout(() => {
                 numarr[k].value = board[j][i];
                 k++;
-            }, count * 100)
+            }, count * 50)
             count++;
         }
     }
