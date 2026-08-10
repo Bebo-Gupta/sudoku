@@ -95,13 +95,14 @@ function isInitialBoardValid(board) {
 }
 
 function printSolution(board, numarr) {
-    let k = 0
+    let k = 0, count = 0
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-
-            numarr[k].value = board[j][i];
-
-            k++;
+            setTimeout(() => {
+                numarr[k].value = board[j][i];
+                k++;
+            }, count * 100)
+            count++;
         }
     }
 }
